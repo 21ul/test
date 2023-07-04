@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <!-- 
-    https에서 http로 보내는 ajax를 허용하도록 설정하자
-    http https ajax
-   -->
+  <!-- https에서 http로 보내는 ajax를 허용하도록 설정하자
+      http https ajax 
+  -->
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,9 @@
       const pageno = getPageno();
       const result = await fetch(pageno);
       printContacts(result.contacts);
-    })
+      const pagination = getPagination(result);
+      printPagination(pagination);
+    });
   </script>
   <title>Document</title>
 </head>
@@ -34,6 +35,7 @@
     <tbody id="tbody">
     </tbody>
   </table>
-  <ul class="pagination" id="pagination">
+  <ul class="pagination" id="pagination" style="display:flex; justify-content: center;">
+  </ul>
 </body>
 </html>
